@@ -1,0 +1,140 @@
+{
+    "file_naming_format": {
+        "general_file": "%Y-%m-%dT%H%M%S%z",
+        "media_file": "%Y-%m-%dT%H%M%S%z_%{ms}_%{dtt}_%{et}"
+    },
+    "supported_file_extensions": {
+        "exiftool": {
+            "image": [
+                "APNG",
+                "ARW",
+                "AVIF",
+                "CIFF",
+                "CR2",
+                "CR3",
+                "CRM",
+                "CRW",
+                "DCP",
+                "DNG",
+                "EPS",
+                "EPS2",
+                "EPS3",
+                "EPSF",
+                "ERF",
+                "EXIF",
+                "EXV",
+                "FFF",
+                "FLIF",
+                "GIF",
+                "GPR",
+                "HDP",
+                "HEIC",
+                "HEIF",
+                "HIF",
+                "IIQ",
+                "J2K",
+                "JNG",
+                "JP2",
+                "JPE",
+                "JPEG",
+                "JPF",
+                "JPG",
+                "JPM",
+                "JPS",
+                "JPX",
+                "JXL",
+                "JXR",
+                "MEF",
+                "MIE",
+                "MNG",
+                "MOS",
+                "MPO",
+                "MRW",
+                "NEF",
+                "NRW",
+                "ORF",
+                "ORI",
+                "PBM",
+                "PEF",
+                "PGM",
+                "PNG",
+                "PPM",
+                "PS",
+                "PS2",
+                "PS3",
+                "PSB",
+                "PSD",
+                "PSDT",
+                "RAF",
+                "RAW",
+                "RW2",
+                "RWL",
+                "SR2",
+                "SRW",
+                "THM",
+                "TIF",
+                "TIFF",
+                "VRD",
+                "WDP",
+                "X3F",
+                "XMP"
+            ],
+            "video_and_audio": [
+                "360",
+                "3G2",
+                "3GP",
+                "3GP2",
+                "3GPP",
+                "F4P",
+                "F4V",
+                "LRV",
+                "M4V",
+                "MOV",
+                "MP4",
+                "MQV",
+                "QT",
+                "AAX",
+                "F4A",
+                "F4B",
+                "M4A",
+                "M4B",
+                "M4P"
+            ]
+        },
+        "pillow": {
+            "image": [
+                "EPS",
+                "GIF",
+                "JPEG",
+                "JPG",
+                "PNG",
+                "PPM",
+                "TIFF"
+            ]
+        }
+    },
+    "ignored_file_extensions": [
+        "ini"
+    ],
+    "media": {
+        "DateAndTimeType": {
+            "AUTHENTIC": "a",
+            "BEST": "b",
+            "CURATED": "c"
+        },
+        "EditType": {
+            "ORIGINAL": "orig",
+            "EDITED": "edit"
+        }
+    },
+    "editing_softwares_keywords": [
+        "adobe amecommand",
+        "edit",
+        "editor",
+        "lightroom",
+        "photoshop",
+        "windows photo editor"
+    ],
+    "use_exiftool_on_images": true,
+    "debug_mode": false
+}
