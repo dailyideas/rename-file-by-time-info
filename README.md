@@ -1,4 +1,4 @@
-# rename-file-by-time-info
+<h2 id='rename-file-by-time-info'>rename-file-by-time-info</h2>
 
 This is a CLI tool to rename files under a folder, according to the time that the file is born. That is, I want the file to be named by the time it's original copy is created.
 
@@ -171,6 +171,7 @@ Setting it to true will output more logs.
 
 1. `pip install .[dist]`
 1. `python -O distribute.py`
+1. Distributable generated can be found in `dist`.
 
 <h2 id='license.rename-file-by-time-info'>License</h2>
 
