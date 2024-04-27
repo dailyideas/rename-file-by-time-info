@@ -24,9 +24,12 @@ class VideoAndAudioInfo(MediaFileInfo):
         ) -> datetime.datetime | None:
             if time_zone is None:
                 time_zone = datetime.timezone.utc
-            return datetime.datetime.strptime(
-                naive_date_and_time, "%Y:%m:%d %H:%M:%S"
-            ).replace(tzinfo=time_zone)
+            try:
+                return datetime.datetime.strptime(
+                    naive_date_and_time, "%Y:%m:%d %H:%M:%S"
+                ).replace(tzinfo=time_zone)
+            except ValueError:
+                return None
 
         exif_data = cls.get_exiftool_output(file_path=file_path)
         if __debug__:

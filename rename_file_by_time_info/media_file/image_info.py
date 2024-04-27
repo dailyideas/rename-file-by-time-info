@@ -21,7 +21,7 @@ class ImageInfo(MediaFileInfo):
         naive_date_and_time: str,
         offset_time: str | None = None,
         subsecond_time: str | None = None,
-    ) -> datetime.datetime:
+    ) -> datetime.datetime | None:
         if isinstance(subsecond_time, str) and len(subsecond_time) > 6:
             raise ValueError(
                 "Sub-second time cannot have resolution higher than microseconds: {}".format(
@@ -43,10 +43,12 @@ class ImageInfo(MediaFileInfo):
                 )
             )
         )
-        result = datetime.datetime.strptime(
-            naive_date_and_time, "%Y:%m:%d %H:%M:%S"
-        ).replace(microsecond=microsecond, tzinfo=time_zone)
-        return result
+        try:
+            return datetime.datetime.strptime(
+                naive_date_and_time, "%Y:%m:%d %H:%M:%S"
+            ).replace(microsecond=microsecond, tzinfo=time_zone)
+        except ValueError:
+            return None
 
     @classmethod
     def from_exiftool(cls, file_path: str) -> ImageInfo | None:
