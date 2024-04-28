@@ -53,7 +53,12 @@ class VideoAndAudioInfo(MediaFileInfo):
 
         date_and_time_type = DateAndTimeType.AUTHENTIC
         date_and_time: datetime.datetime | None = None
-        for keyword in ["CreateDate", "MediaCreateDate", "TrackCreateDate"]:
+        for keyword in [
+            "DateTimeOriginal",
+            "CreateDate",
+            "MediaCreateDate",
+            "TrackCreateDate",
+        ]:
             if keyword not in exif_data:
                 continue
             date_and_time = _exif_datetime_data_to_datetime_obj(
