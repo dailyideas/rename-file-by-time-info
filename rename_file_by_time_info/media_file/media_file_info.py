@@ -82,7 +82,7 @@ class MediaFileInfo:
         if command_output is None:
             return {}
         try:
-            return json.loads(command_output.decode("UTF-8"))[0]
+            return json.loads(command_output)[0]
         except:
             return {}
 
