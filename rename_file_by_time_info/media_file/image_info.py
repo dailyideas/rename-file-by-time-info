@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import datetime
 import logging
+from typing import Any
 
+import PIL
 from PIL import Image
 
 from .media_file_info import DateAndTimeType, MediaFileInfo
@@ -102,9 +104,13 @@ class ImageInfo(MediaFileInfo):
 
     @classmethod
     def from_pil(cls, file_path: str) -> ImageInfo | None:
-        def get_exif_data(file_path: str) -> dict:
-            with Image.open(file_path) as image:
-                exif_data = image._getexif()
+        def get_exif_data(file_path: str) -> dict[int, Any]:
+            exif_data: dict | None = None
+            try:
+                with Image.open(file_path) as image:
+                    exif_data = image._getexif()
+            except PIL.UnidentifiedImageError:
+                pass
             if exif_data is None:
                 return {}
             return exif_data

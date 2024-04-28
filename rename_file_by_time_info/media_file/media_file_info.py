@@ -7,8 +7,9 @@ import json
 import logging
 import os
 import statistics
-import subprocess
 from typing import Any, ClassVar
+
+from rename_file_by_time_info import external_program
 
 
 logger = logging.getLogger()
@@ -77,13 +78,13 @@ class MediaFileInfo:
     @staticmethod
     def get_exiftool_output(file_path: str) -> dict[str, Any]:
         command = ["exiftool", "-ExtractEmbedded", "-j", file_path]
-        result_bytes = subprocess.check_output(command)
-        result_str = result_bytes.decode("UTF-8").rstrip("\r\n")
+        command_output = external_program.helper.execute(command=command)
+        if command_output is None:
+            return {}
         try:
-            result = json.loads(result_str)[0]
+            return json.loads(command_output.decode("UTF-8"))[0]
         except:
-            result = {}
-        return result
+            return {}
 
     @staticmethod
     def _is_datetime_object_timezone_aware(
